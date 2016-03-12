@@ -1,2 +1,1 @@
-# hadoop
-Practice on hadoop
+Practice on Hadoop

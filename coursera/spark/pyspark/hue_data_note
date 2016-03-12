@@ -1,0 +1,9 @@
+PYSPARK_DRIVER_PYTHON=ipython pyspark --package com.databricks:spark-csv_2.10:1.3.0
+yelp_df = sqlCtx.load(source="com.databricks.spark.csv", header = 'true', inferSchema = 'true', path = 'file:///home/cloudera/assignments/pyspark/hue/hue-master/apps/search/examples/collections/solr_configs_yelp_demo/index_data.csv')
+
+from pyspark.sql import functions as func
+yelp_df.agg(func.avg('cool')).show()  
+
+yelp_df.filter(yelp_df['review_count'] >= 10 and yelp_df['stars'] == 4).agg(func.avg('cool')).show() 
+
+
